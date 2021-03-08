@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RaingaugesController;
+use App\Http\Controllers\RainfalldatasController;
+use App\Http\Controllers\RainfalleventsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/raingauges', [RaingaugesController::class, 'index']);
+Route::get('/rainfalldatas', [RainfalldatasController::class, 'index']);
+Route::resource('/rainfallevents', RainfalleventsController::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
