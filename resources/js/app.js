@@ -1,4 +1,6 @@
 require('./bootstrap');
+require('bootstrap-table');
+import 'bootstrap-table/dist/bootstrap-table.css';
 
 jQuery(function ($) {
 
@@ -30,8 +32,9 @@ $("#close-sidebar").click(function() {
 $("#show-sidebar").click(function() {
   $(".page-wrapper").addClass("toggled");
 });
-
-
-   
-   
+  
 });
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })

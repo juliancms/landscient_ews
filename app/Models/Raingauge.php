@@ -13,6 +13,8 @@ class Raingauge extends Model
 
     protected $primaryKey = 'id';
 
+    protected $fillable = ['name'];
+
     public function rainfalldatas()
     {
         return $this->hasMany(Rainfalldata::class);

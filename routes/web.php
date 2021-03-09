@@ -19,7 +19,7 @@ use App\Http\Controllers\RainfalleventsController;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/raingauges', [RaingaugesController::class, 'index']);
+Route::resource('/raingauges', RaingaugesController::class);
 Route::get('/rainfalldatas', [RainfalldatasController::class, 'index']);
 Route::resource('/rainfallevents', RainfalleventsController::class);
 Auth::routes();
