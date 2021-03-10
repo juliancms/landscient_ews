@@ -37,7 +37,7 @@
         <ul>
           <li class="sidebar-dropdown">
             <a href="#">
-              <i class="fa fa-tachometer-alt"></i>
+              <i class="fa fa-thermometer-half"></i>
               <span>Raingauges</span>
             </a>
             <div class="sidebar-submenu">
@@ -53,7 +53,7 @@
           </li>
           <li class="sidebar-dropdown">
             <a href="#">
-              <i class="fa fa-shopping-cart"></i>
+              <i class="fa fa-table"></i>
               <span>Rainfall Data</span>
             </a>
             <div class="sidebar-submenu">
@@ -69,7 +69,7 @@
           </li>
           <li class="sidebar-dropdown">
             <a href="#">
-              <i class="far fa-gem"></i>
+              <i class="fa fa-desktop"></i>
               <span>Simulations</span>
             </a>
             <div class="sidebar-submenu">

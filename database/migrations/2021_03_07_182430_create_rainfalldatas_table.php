@@ -16,8 +16,9 @@ class CreateRainfalldatasTable extends Migration
         Schema::create('rainfalldatas', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('raingauge_id');
-            $table->decimal('P1', 15, 15);
-            $table->decimal('P2', 15, 15);
+            $table->dateTime('dateTime');
+            $table->decimal('P1', 32, 15);
+            $table->decimal('P2', 32, 15);
             $table->integer('quality');
             $table->timestamps();
             $table->foreign('raingauge_id')->references('id')->on('raingauges')->onDelete

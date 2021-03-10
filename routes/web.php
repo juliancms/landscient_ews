@@ -20,7 +20,8 @@ Route::get('/', function () {
     return view('index');
 });
 Route::resource('/raingauges', RaingaugesController::class);
-Route::get('/rainfalldatas', [RainfalldatasController::class, 'index']);
+Route::get('/rainfalldatas/import', [RainfalldatasController::class, 'import']);
+Route::post('/rainfalldatas/store', [RainfalldatasController::class, 'store'])->name('store');
 Route::resource('/rainfallevents', RainfalleventsController::class);
 Auth::routes();
 
