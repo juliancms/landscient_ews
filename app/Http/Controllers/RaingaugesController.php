@@ -42,4 +42,51 @@ class RaingaugesController extends Controller
         ]);
         return redirect('/raingauges');
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        
+        $raingauge = Raingauge::where('id', $id)->first();
+        return view('raingauges.edit')->with('raingauge', $raingauge);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $raingauge = Raingauge::where('id', $id)
+        ->update([
+            'name' => $request->input('name')
+        ]);
+
+        return redirect('/raingauges');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Raingauge $raingauge)
+    {
+        $raingauge->delete();
+        
+        return redirect('/raingauges');
+    }
 }

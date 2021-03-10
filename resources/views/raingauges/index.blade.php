@@ -19,8 +19,12 @@
                 <td>{{ $raingauge->name }}</td>
                 <td>{{ $raingauge->created_at }}</td>
                 <td>
-                    <a href="javascript:void(0)" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a> 
-                    <a href="javascript:void(0)" data-toggle="tooltip" title="Remove"><i class="fa fa-trash-alt text-danger"></i></a>
+                    <form action="/raingauges/{{ $raingauge->id }}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <a href="raingauges/{{ $raingauge->id }}/edit" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a> 
+                        <button class="border-0 bg-transparent" type="submit" data-toggle="tooltip" title="Remove"><i class="fa fa-trash-alt text-danger"></i></button>
+                    </form>
                  </td>
             </tr>
             @endforeach
