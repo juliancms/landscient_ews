@@ -59,10 +59,13 @@
             <div class="sidebar-submenu">
               <ul>
                 <li>
-                  <a href="#">List</a>
+                  <a href="{{ route('rainfalldatas.index') }}">Demo DBs</a>
                 </li>
                 <li>
-                  <a href="#">Import</a>
+                  <a href="#">Simulations</a>
+                </li>
+                <li>
+                  <a href="{{ route('rainfalldatas.import') }}">Import Demo DB</a>
                 </li>
               </ul>
             </div>

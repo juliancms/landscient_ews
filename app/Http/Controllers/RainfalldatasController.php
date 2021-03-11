@@ -13,8 +13,46 @@ class RainfalldatasController extends Controller
 {
     public function index()
     {
-        return view('rainfalldatas/index');
+        $demodbs = Demodb::all();
+        return view('rainfalldatas/index', [
+            'demodbs' => $demodbs
+        ]);
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        
+        $demodb = Demodb::where('id', $id)->first();
+        return view('rainfalldatas.edit')->with('demodb', $demodb);
+    }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $demodb = Demodb::where('id', $id)
+        ->update([
+            'name' => $request->input('name')
+        ]);
+
+        return redirect('/rainfalldatas');
+    }
+
 
      /**
      * Show the form for importing Rainfall data.
@@ -35,7 +73,7 @@ class RainfalldatasController extends Controller
      *
      * @return \Illuminate\Support\Collection
      */
-    public function store()
+    public function saveimport()
     {
         request()->validate([
             'name' => 'required|max:255',
@@ -47,6 +85,21 @@ class RainfalldatasController extends Controller
         Excel::import(new RainfalldataImport(request()->input('raingauge_id'), $demodb->id),request()->file('file'));
              
         return back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+
+        $demodb = Demodb::find($id);
+        $demodb->delete();
+        
+        return redirect('/rainfalldatas');
     }
 
 }

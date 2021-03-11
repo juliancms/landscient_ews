@@ -14,7 +14,7 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('saveimport') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group row">
               <label for="name" class="col-sm-2 col-form-label">Name</label>
