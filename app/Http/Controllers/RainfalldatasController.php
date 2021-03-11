@@ -7,6 +7,7 @@ use App\Imports\RainfalldataImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Rainfalldata;
 use App\Models\Raingauge;
+use App\Models\Demodb;
 
 class RainfalldatasController extends Controller
 {
@@ -36,7 +37,14 @@ class RainfalldatasController extends Controller
      */
     public function store()
     {
-        Excel::import(new RainfalldataImport(request()->input('raingauge_id')),request()->file('file'));
+        request()->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $demodb = Demodb::create([
+            'name' => request()->input('name')
+        ]);
+        Excel::import(new RainfalldataImport(request()->input('raingauge_id'), $demodb->id),request()->file('file'));
              
         return back();
     }

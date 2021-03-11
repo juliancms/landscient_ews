@@ -14,7 +14,7 @@ class Rainfalldata extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['raingauge_id', 'dateTime', 'P1', 'P2', 'quality'];
+    protected $fillable = ['raingauge_id', 'demodb_id', 'dateTime', 'P1', 'P2', 'quality'];
 
     public function raingauge()
     {

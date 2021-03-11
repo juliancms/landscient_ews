@@ -9,9 +9,10 @@ use Maatwebsite\Excel\Concerns\WithStartRow;
 class RainfalldataImport implements ToModel, WithStartRow
 {
 
-    public function  __construct(int $raingauge_id)
+    public function  __construct(int $raingauge_id, int $demodb_id)
     {
         $this->raingauge_id = $raingauge_id;
+        $this->demodb_id = $demodb_id;
     }
 
     /**
@@ -34,6 +35,7 @@ class RainfalldataImport implements ToModel, WithStartRow
     {
         return new Rainfalldata([
             'raingauge_id' => $this->raingauge_id,
+            'demodb_id' => $this->demodb_id,
             'dateTime' => $row[0],
             'P1' => $row[1],
             'P2' => $row[2],
