@@ -70,22 +70,6 @@
               </ul>
             </div>
           </li>
-          <li class="sidebar-dropdown">
-            <a href="#">
-              <i class="fa fa-desktop"></i>
-              <span>Simulations</span>
-            </a>
-            <div class="sidebar-submenu">
-              <ul>
-                <li>
-                  <a href="#">List</a>
-                </li>
-                <li>
-                  <a href="#">Create</a>
-                </li>
-              </ul>
-            </div>
-          </li>
         </ul>
       </div>
       <!-- sidebar-menu  -->

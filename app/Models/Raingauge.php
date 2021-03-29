@@ -15,6 +15,11 @@ class Raingauge extends Model
 
     protected $fillable = ['name'];
 
+    public function studysite()
+    {
+        return this->belongsTo(Studysite::class);
+    }
+
     public function rainfalldatas()
     {
         return $this->hasMany(Rainfalldata::class);

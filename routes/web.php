@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::resource('/raingauges', RaingaugesController::class);
 
 Route::get('/rainfalldatas/import', [RainfalldatasController::class, 'import'])->name('rainfalldatas.import');
+Route::get('/rainfalldatas/{id}/simulate/', [RainfalldatasController::class, 'simulate'])->name('simulate');
 Route::post('/rainfalldatas/saveimport', [RainfalldatasController::class, 'saveimport'])->name('saveimport');
 Route::resource('/rainfalldatas', RainfalldatasController::class);
 Route::resource('/rainfallevents', RainfalleventsController::class);

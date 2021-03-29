@@ -13,10 +13,24 @@ class CreateRaingaugesTable extends Migration
      */
     public function up()
     {
-        Schema::create('raingauges', function (Blueprint $table) {
+
+        Schema::create('studysites', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->decimal('alpha');
+            $table->decimal('beta');
+            $table->integer('duration_initial');
+            $table->integer('duration_final');
             $table->timestamps();
+        });
+
+        Schema::create('raingauges', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('studysite_id');
+            $table->string('name');
+            $table->timestamps();
+            $table->foreign('studysite_id')->references('id')->on('studysites')->onDelete
+            ('cascade');
         });
 
         Schema::create('demodbs', function (Blueprint $table) {

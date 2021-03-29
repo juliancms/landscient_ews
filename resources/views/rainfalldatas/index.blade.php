@@ -23,6 +23,7 @@
                         @csrf
                         @method('delete')
                         <a href="rainfalldatas/{{ $demodb->id }}/edit" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a> 
+                        <a href="rainfalldatas/{{ $demodb->id }}/simulate" data-toggle="tooltip" title="Simulate"><i class="fa fa-retweet"></i></a> 
                         <button class="border-0 bg-transparent" type="submit" data-toggle="tooltip" title="Remove"><i class="fa fa-trash-alt text-danger"></i></button>
                     </form>
                  </td>
