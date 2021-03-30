@@ -20,4 +20,9 @@ class Demodb extends Model
         return $this->hasMany(Rainfalldata::class);
     }
 
+    public function rainfallevents()
+    {
+        return $this->hasMany(Rainfallevent::class);
+    }
+
 }

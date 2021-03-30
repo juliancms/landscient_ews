@@ -70,7 +70,7 @@
           <li class="sidebar-dropdown">
             <a href="#">
               <i class="fa fa-table"></i>
-              <span>Rainfall Data</span>
+              <span>Demo Rainfall Data</span>
             </a>
             <div class="sidebar-submenu">
               <ul>
@@ -78,10 +78,23 @@
                   <a href="{{ route('rainfalldatas.index') }}">Demo DBs</a>
                 </li>
                 <li>
-                  <a href="#">Simulations</a>
+                  <a href="{{ route('rainfalldatas.import') }}">Import Demo DB</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-retweet"></i>
+              <span>Simulations</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="{{ route('simulations.index') }}">List</a>
                 </li>
                 <li>
-                  <a href="{{ route('rainfalldatas.import') }}">Import Demo DB</a>
+                  <a href="{{ route('simulations.create') }}">Create</a>
                 </li>
               </ul>
             </div>
@@ -112,5 +125,6 @@
   <!-- page-content" -->
 </div>
 <!-- page-wrapper -->
+@stack('scripts')
 </body>
 </html>

@@ -16,9 +16,9 @@ class Rainfalldata extends Model
 
     protected $fillable = ['raingauge_id', 'demodb_id', 'dateTime', 'P1', 'P2', 'quality'];
 
-    public function raingauge()
+    public function raingauges()
     {
-        return $this->belongsTo(Raingauge::class);
+        return $this->belongsTo(Raingauge::class, 'raingauge_id');
     }
 
     public function setDateTimeAttribute( $value ) {

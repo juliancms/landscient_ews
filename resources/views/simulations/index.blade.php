@@ -1,28 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Demo DBs</h2>
+<h2>Simulations</h2>
 <hr>
 <div class="row">
     <div class="form-group col-md-12">
     <table data-toggle="table">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Study Site</th>
+                <th>Raingauge</th>
                 <th>Date of Creation</th>
                 <th>Options</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($demodbs as $demodb)
+            @foreach ($simulations as $simulation)
+            
             <tr>
-                <td>{{ $demodb->name }}</td>
-                <td>{{ $demodb->created_at }}</td>
+                <td>{{ $simulation->raingauges->studysites->name }}</td>
+                <td>{{ $simulation->raingauges->name }}</td>
+                <td>{{ $simulation->created_at }}</td>
                 <td>
-                    <form action="/rainfalldatas/{{ $demodb->id }}" method="POST">
+                    <form action="/simulations/{{ $simulation->id }}" method="POST">
                         @csrf
                         @method('delete')
-                        <a href="rainfalldatas/{{ $demodb->id }}/edit" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a> 
+                        <a href="/simulations/{{ $simulation->id }}" data-toggle="tooltip" title="Show"><i class="fa fa-eye"></i></a>                         
                         <button class="border-0 bg-transparent" type="submit" data-toggle="tooltip" title="Remove"><i class="fa fa-trash-alt text-danger"></i></button>
                     </form>
                  </td>

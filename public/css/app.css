@@ -10518,3 +10518,28 @@ body {
 .chiller-theme .sidebar-footer > a:last-child {
   border-right: none;
 }
+
+.bg-green {
+  background-color: green;
+  color: white;
+}
+
+.bg-yellow {
+  background-color: yellow;
+  color: black;
+}
+
+.bg-orange {
+  background-color: orange;
+  color: black;
+}
+
+.bg-red {
+  background-color: red;
+  color: white;
+}
+
+.bg-purple {
+  background-color: purple;
+  color: white;
+}
