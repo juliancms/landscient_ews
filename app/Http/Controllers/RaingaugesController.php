@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Raingauge;
+use App\Models\Studysite;
 
 class RaingaugesController extends Controller
 {
@@ -22,7 +23,11 @@ class RaingaugesController extends Controller
      */
     public function create()
     {
-        return view('raingauges.create');
+        $studysites = Studysite::all();
+
+        return view('raingauges/create', [
+            'studysites' => $studysites
+        ]);
     }
 
     /**
@@ -35,10 +40,12 @@ class RaingaugesController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
+            'studysite' => 'required|integer',
         ]);
 
         $raingauge = Raingauge::create([
-            'name' => $request->input('name')
+            'name' => $request->input('name'),
+            'studysite_id' => $request->input('studysite'),
         ]);
         return redirect('/raingauges');
     }
@@ -53,7 +60,11 @@ class RaingaugesController extends Controller
     {
         
         $raingauge = Raingauge::where('id', $id)->first();
-        return view('raingauges.edit')->with('raingauge', $raingauge);
+        $studysites = Studysite::all();
+        return view('raingauges/edit', [
+            'raingauge' => $raingauge,
+            'studysites' => $studysites
+        ]);
     }
 
     /**
@@ -67,11 +78,13 @@ class RaingaugesController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
+            'studysite' => 'required|integer',
         ]);
 
         $raingauge = Raingauge::where('id', $id)
         ->update([
-            'name' => $request->input('name')
+            'name' => $request->input('name'),
+            'studysite_id' => $request->input('studysite'),
         ]);
 
         return redirect('/raingauges');

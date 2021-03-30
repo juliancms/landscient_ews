@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RaingaugesController;
 use App\Http\Controllers\RainfalldatasController;
 use App\Http\Controllers\RainfalleventsController;
+use App\Http\Controllers\StudysitesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/', function () {
     return view('index');
 });
 Route::resource('/raingauges', RaingaugesController::class);
-
+Route::resource('/studysites', StudysitesController::class);
 Route::get('/rainfalldatas/import', [RainfalldatasController::class, 'import'])->name('rainfalldatas.import');
 Route::get('/rainfalldatas/{id}/simulate/', [RainfalldatasController::class, 'simulate'])->name('simulate');
 Route::post('/rainfalldatas/saveimport', [RainfalldatasController::class, 'saveimport'])->name('saveimport');

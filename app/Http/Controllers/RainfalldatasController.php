@@ -129,7 +129,7 @@ class RainfalldatasController extends Controller
                 continue;
             }
         }
-
+        
         print_r($rain_events);
         exit;
 

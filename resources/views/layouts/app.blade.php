@@ -37,6 +37,22 @@
         <ul>
           <li class="sidebar-dropdown">
             <a href="#">
+              <i class="fa fa-map-marker"></i>
+              <span>Study Sites</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="{{ route('studysites.index') }}">List</a>
+                </li>
+                <li>
+                  <a href="{{ route('studysites.create') }}">Create</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
               <i class="fa fa-thermometer-half"></i>
               <span>Raingauges</span>
             </a>

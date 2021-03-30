@@ -13,11 +13,11 @@ class Raingauge extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'studysite_id'];
 
-    public function studysite()
+    public function studysites()
     {
-        return this->belongsTo(Studysite::class);
+        return $this->belongsTo(Studysite::class, 'studysite_id');
     }
 
     public function rainfalldatas()

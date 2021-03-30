@@ -18,7 +18,7 @@ class Rainfalldata extends Model
 
     public function raingauge()
     {
-        return this->belongsTo(Raingauge::class);
+        return $this->belongsTo(Raingauge::class);
     }
 
     public function setDateTimeAttribute( $value ) {
