@@ -17,8 +17,8 @@ class CreateRaingaugesTable extends Migration
         Schema::create('studysites', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->decimal('alpha');
-            $table->decimal('beta');
+            $table->decimal('alpha', 32, 15);
+            $table->decimal('beta', 32, 15);
             $table->integer('duration_initial');
             $table->integer('duration_final');
             $table->timestamps();
@@ -83,16 +83,6 @@ class CreateRaingaugesTable extends Migration
             $table->foreign('rainfalldata_id_start')->references('id')->on('rainfalldatas')->onDelete
             ('cascade');
             $table->foreign('rainfalldata_id_end')->references('id')->on('rainfalldatas')->onDelete
-            ('cascade');
-        });
-
-        Schema::create('advisorylevels', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('rainfallevent_id');
-            $table->decimal('intensityratio', 32, 15);
-            $table->integer('duration');
-            $table->timestamps();
-            $table->foreign('rainfallevent_id')->references('id')->on('rainfallevents')->onDelete
             ('cascade');
         });
 

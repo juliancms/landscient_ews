@@ -2,31 +2,45 @@
 @push('scripts')
     <script>
         var arr = @json($rainfalldatas);
+        var duration_initial = arr[0]['raingauges']['studysites']['duration_initial'] * 60;
+        var duration_final = arr[0]['raingauges']['studysites']['duration_final'] * 60;
         var i = 0;
         setInterval(function(){
             var advisorylevel = arr[i]['advisorylevel'];
             var number = Number(advisorylevel);
             var row = document.getElementById("row_simulation");
-            var mins = Number(arr[i]['rainfallevent_duration']) - Number(arr[i]['advisorylevel_duration']);
-            if(number < 0.5){
-                row.classList.add("bg-green");
-                document.getElementById("advisory_level").innerHTML = "Low";
-            } else if(number < 0.75 && advisorylevel >= 0.5){
-                row.classList.add("bg-yellow");
-                document.getElementById("advisory_level").innerHTML = "Medium";
-            } else if(number >= 0.75 && advisorylevel < 0.9){
-                row.classList.add("bg-orange");
-                document.getElementById("advisory_level").innerHTML = "Moderate High";
-            } else if(number >= 0.9 && advisorylevel < 1){
-                row.classList.add("bg-red");
-                document.getElementById("advisory_level").innerHTML = "High";
-            } else if(number > 1){
-                row.classList.add("bg-purble");
-                document.getElementById("advisory_level").innerHTML = "Extreme";
+            var mins = Number(arr[i]['advisorylevel_duration']);
+            if(arr[i]['rainfallevent_duration'] > duration_initial && arr[i]['rainfallevent_duration'] < duration_final){
+                if(number == 0){
+                row.className = '';
+                document.getElementById("advisory_level").innerHTML = "No Rainfall";
+                } else if(number < 0.5){
+                    row.className = 'bg-green';
+                    document.getElementById("advisory_level").innerHTML = "Low";
+                } else if(number < 0.75 && advisorylevel >= 0.5){
+                    row.className = 'bg-yellow';
+                    document.getElementById("advisory_level").innerHTML = "Medium";
+                } else if(number >= 0.75 && advisorylevel < 0.9){
+                    row.className = 'bg-orange';
+                    document.getElementById("advisory_level").innerHTML = "Moderate High";
+                } else if(number >= 0.9 && advisorylevel < 1){
+                    row.className = 'bg-red';
+                    document.getElementById("advisory_level").innerHTML = "High";
+                } else if(number > 1){
+                    row.className = 'bg-purple';
+                    document.getElementById("advisory_level").innerHTML = "Extreme";
+                }
+                document.getElementById("conditions").innerHTML = "IR = " + number.toFixed(4);
+                document.getElementById("duration").innerHTML = mins + " min";
+                document.getElementById("datetime").innerHTML = arr[i]['dateTime'];   
+            } else {
+                document.getElementById("conditions").innerHTML = "IR = " + number.toFixed(4);
+                document.getElementById("duration").innerHTML = mins + " min";
+                document.getElementById("datetime").innerHTML = arr[i]['dateTime'];
+                document.getElementById("advisory_level").innerHTML = "None";
+                row.className = '';
             }
-            document.getElementById("conditions").innerHTML = "IR = " + number.toFixed(4);
-            document.getElementById("duration").innerHTML = mins + " min";
-            document.getElementById("datetime").innerHTML = arr[i]['dateTime'];            
+                     
             i++;
         }, 1000);
     </script>
@@ -40,7 +54,7 @@
         <thead>
             <tr>
                 <th>Study Site</th>
-                <th>Raingauge</th>
+                <th>Rain Gauge</th>
                 <th>Advisory Level</th>
                 <th>Conditions</th>
                 <th>Duration</th>

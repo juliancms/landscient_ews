@@ -30,8 +30,4 @@ class Simulation extends Model
         return $this->hasMany(Rainfallevent::class);
     }
 
-    public function advisorylevels()
-    {
-        return $this->rainfallevents()->with('advisorylevels');
-    }
 }

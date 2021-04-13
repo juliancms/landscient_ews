@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Raingauges</h2>
+<h2>Rain Gauges</h2>
 <hr>
 <div class="row">
     <div class="form-group col-md-12">

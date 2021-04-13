@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Study Site</th>
-                <th>Raingauge</th>
+                <th>Rain Gauge</th>
                 <th>Date of Creation</th>
                 <th>Options</th>
             </tr>

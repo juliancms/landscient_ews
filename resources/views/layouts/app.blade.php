@@ -54,7 +54,7 @@
           <li class="sidebar-dropdown">
             <a href="#">
               <i class="fa fa-thermometer-half"></i>
-              <span>Raingauges</span>
+              <span>Rain Gauges</span>
             </a>
             <div class="sidebar-submenu">
               <ul>
@@ -75,10 +75,10 @@
             <div class="sidebar-submenu">
               <ul>
                 <li>
-                  <a href="{{ route('rainfalldatas.index') }}">Demo DBs</a>
+                  <a href="{{ route('rainfalldatas.index') }}">List</a>
                 </li>
                 <li>
-                  <a href="{{ route('rainfalldatas.import') }}">Import Demo DB</a>
+                  <a href="{{ route('rainfalldatas.import') }}">Import</a>
                 </li>
               </ul>
             </div>
